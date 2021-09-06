@@ -1,0 +1,30 @@
+ <h1 class="title">Register:</h1>
+    <div id="error"></div>
+    <form id="form"  onSubmit="return validate();" method="POST"  action="/users/createUser" enctype="application/x-www-form-urlencoded"> 
+        <div class="formError">
+        <label class="arguments" >Username <input type="text" id = "username" name="username" ></label><div id = "userError" class ="error" ></div>
+        <br>
+        </div>
+
+        <div class="formError">
+        <label class="arguments">Email:  <input type="email" id="email" name ="email" ></label><div id="emailError" class = "error" ></div>
+        <br>
+        </div>
+
+        <div class="formError">
+        <label class="arguments">Password: <input type="password" id="pwd" name ="password"></label><div id="pwdError" class = "error" r></div>
+        <br>
+        </div>
+
+        <div class="formError">
+        <label class="arguments">Confirm Password: <input type="password" id="cpwd" name="cpassword"></label><div id="cpwdError" class = "error"></div>
+        <br>
+        </div>
+        
+        <label class="arguments">I agree that I am 13 years or Older<input type="checkbox" id="agree" ></label><div id="ageError" class = "error" ></div>
+        <br>
+        <label class="arguments">I accept the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target='_blank'></label>TOS and Privacy Rules</a> <input type="checkbox" id="agree2" ></label><div id="agreeError" class = "error"></div>
+        <br>    
+        <button type="submit" value="Submit" id="submit-btn" >Submit</button>
+        </form>
+      

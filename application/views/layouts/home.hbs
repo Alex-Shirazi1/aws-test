@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel = "stylesheet" type="text/css" href="/public/css/style.css">
+    <script type= "text/javascript" src="/public/js/register.js"></script>
+    <script defer src="/public/js/frontendjs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+</head>
+<body>
+<div id="Site">
+    <div id="wrapper">
+   
+        {{> header}}
+     {{#if (emptyObject messages)}}
+        {{> flashmessage}}
+        {{/if}}
+        
+        {{{body}}}
+      
+
+<div class="Site-content"></div>
+        </div>
+        {{> footer}}
+</div>
+        {{#if logged}}
+<script>
+let ele = document.getElementById("logout-button");
+if(ele){
+    ele.onClick = (even) => {
+        fetch('/users/logout',{ 
+        method: "GET"
+    }).then((data) =>{
+        location.replace('/');
+        location.reload(true);
+    })
+    }
+}
+</script>
+  {{/if}}
+  
+</body>
+</html>

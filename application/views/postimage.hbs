@@ -1,0 +1,91 @@
+  
+ <h1 class="title">Post Here:</h1>
+    <form id="post-image"   method="POST"  onsubmit="return validateMyForm();" action='/posts/createPost' enctype="multipart/form-data">
+        <label class="arguments">Title:<input id="title"type="text" name="title" /><div id="titleError" class="error"></div></label>
+        <br>
+        <label class="arguments">Description:<input id="description" type="text" name="description"/><div id="descriptionError" class="error"></div></label>
+        <br>
+        <label class="arguments">Image: <input id="path"type="file" accept="image/*" name="UploadImage"/><div id="pathError" class="error"></div></label>
+        <br>
+
+        <label class="arguments">I accept the <a href="">Use Policy</a>for uploading my image <input id="accept" type="checkbox"/><div id="agreePostError" class="error"></div></label>
+        <br>
+        <input type="submit" value="Submit"/>
+        </form>
+
+
+
+
+        <script>
+        
+              function checkURL(url) {
+            return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+}
+              function validateMyForm(){
+            let form = document.getElementById("post-image");
+            let title = document.getElementById("title").value;
+            let description = document.getElementById("description").value;
+            let image = document.getElementById("path").value;
+            let accept = document.getElementById("accept")
+
+            let titleError = document.getElementById("titleError");
+            let descriptionError = document.getElementById("descriptionError");
+            let pathError = document.getElementById("pathError");
+            let acceptError = document.getElementById("agreePostError");
+   
+    
+    
+            let titleErr = false;
+            let descErr = false;
+            let pathErr = false;
+            let acceptErr = false;
+   
+            
+            if(title===""){
+            //add error syntax  
+            titleError.innerHTML ="<label>title required</label>"
+            titleErr=true;
+            }else if(title.length>0){
+                titleError.innerHTML="<label></label>";
+                titleErr=false;
+              
+            }
+            if(description===""){
+                descriptionError.innerHTML ="<label>description required</label>";
+                descErr=true;
+            }else if(description.length>0){
+                descriptionError.innerHTML="<label></label>";
+                descErr=false;
+            }
+            if(image===""){
+                pathError.innerHTML ="<label>photo required</label>";
+                pathErr=true;
+               
+            }else if(!image.match(/\.(jpeg|jpg|gif|png|webp)$/)){
+                pathError.innerHTML ="<label>Invalid Photo or Unsupported Image type jpg, jpeg, png and gif only</label>";
+                pathErr=true;
+            }else if(image.match(/\.(jpeg|jpg|gif|png|webp)$/)){
+                 pathError.innerHTML ="<label></label>";
+                pathErr=false;
+            }
+            if (accept.checked==false){
+                acceptError.innerHTML="<label>please accept to my very important policy!</label>";
+                acceptErr=true;
+            }else if(accept.checked==true){
+                 acceptError.innerHTML="<label></label>";
+                acceptErr=false;
+            }
+            if(titleErr==true||descErr==true||pathErr==true||acceptErr==true){
+           //submit
+           return false;
+            }else{
+                //dont submit
+                //maybe  addFlashFromFrontEnd(data.message,data.status);
+                
+                return true;
+            }
+            
+            }
+        </script>
+
+       

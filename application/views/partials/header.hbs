@@ -1,0 +1,23 @@
+   <header>
+        <div id ="nav">
+            <ul>
+                <li><a href="/">Home </a></li>
+                <li><a href="/postimage">Post </a></li>
+                <li><a href="/registration">Register </a></li>
+                
+
+                {{#if logged}}
+                <li><a href="../users/logout" id="logout-button">Log Out </a></li>
+                {{else}}
+                <li><a href="/login">Login </a></li>
+                {{/if}}
+                
+
+                
+              </ul>
+              <br>
+            <input type="text" id="search-bar" name ="search-bar"><button id="search-button">Search!</button>
+        
+              
+        </div>
+    </header>
